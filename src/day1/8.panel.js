@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 class PanelHead extends Component{
   render(){
     return <div className="panel-heading">
-      {this.props.head}
+      <span style={{color:this.props.color}}>{this.props.head}</span>
     </div>
   }
 }
@@ -24,14 +24,21 @@ class PanelFooter extends Component{
   }
 }
 class Panel extends Component{
+  constructor(){
+    super();
+    this.state = {color:'black'};
+  }
+  switchColor = (color)=>{
+    this.setState({color});
+  }
   render(){
     return (
       <div className="panel panel-default">
-        <button className="btn btn-danger">红</button>
-        <button className="btn btn-success">绿</button>
-        <PanelHead head={this.props.head}/>
-        <PanelBody body={this.props.children}/>
-        <PanelFooter footer={this.props.footer}/>
+        <button onClick={()=>this.switchColor('red')} className="btn btn-danger">红</button>
+        <button onClick={()=>this.switchColor('green')} className="btn btn-success">绿</button>
+        <PanelHead color={this.state.color} head={this.props.head}/>
+        <PanelBody color={this.state.color} body={this.props.children}/>
+        <PanelFooter color={this.state.color} footer={this.props.footer}/>
       </div>
     )
   }
