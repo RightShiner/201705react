@@ -17,3 +17,14 @@ npm install react react-dom -S
 - 知道什么是React元素
 - 什么是React组件，如何定义React组件
 - 什么是状态和属性，有什么相同点，有什么不同点?
+
+## 编写脚本
+```
+"scripts": {
+    "build": "webpack"
+  }
+```
+## 启动
+```
+npm run build
+```
