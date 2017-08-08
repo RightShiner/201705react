@@ -1,1 +1,1 @@
-import './day1/3.component'
+import './day1/4.props'

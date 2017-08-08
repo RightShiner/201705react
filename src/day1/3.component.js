@@ -16,7 +16,6 @@ import ReactDOM from 'react-dom';
  * 1.组件名字必须是以大写字母开头,是为了区分React元素和组件
  * 2.组件内有render方法，返回一个顶级React元素
  * 3.组件的用法和React元素基本一样
- *
  */
 class Hello extends React.Component{
   //1. 用来指定此组件长什么样子
