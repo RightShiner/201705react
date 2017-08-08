@@ -13,7 +13,8 @@ import ReactDOM from 'react-dom';
  */
 let ele = <h1>hello</h1>;
 console.log(ele);
-//{type:'h1',props:{children:'hello'}}
+//虚拟DOM
+//{type:'h1',props:{className:'bg',style:{color:'red},children:'hello'}}
 ReactDOM.render(ele,document.querySelector('#root'));
 
 /**
