@@ -1,4 +1,6 @@
 let path = require('path');
+//自动生成html页面，并在里面插入打包后的脚本
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry:'./src/index.js',//入口文件
   output:{//输出设置
@@ -14,5 +16,11 @@ module.exports = {
         exclude:/node_modules/ // 对于node_modules下面的文件不解析
       }
     ]
-  }
+  },
+  //自动产出html文件，并且插入打包后的脚本
+  plugins:[
+     new HtmlWebpackPlugin({
+       template:'./src/index.html'
+     })
+  ]
 }
