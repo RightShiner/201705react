@@ -16,13 +16,13 @@ let names = ['柯洁', '冷锋', '楚乔'];
  * 4. React元素和HTMl标签使用上的些差异
  *  4.1 如果给元素增加类名，不能使用class，需要使用className
  *  4.2 给元素增加行内样式，style需要等于一个对象
- *  4.3 如果=>后面是花括号，里面需要用return返回，如果小括号，则不需要用return 
+ *  4.3 如果=>后面是花括号，里面需要用return返回，如果小括号，则不需要用return
  */
 let style = {color: 'red', fontSize: '30px'};
 ReactDOM.render(<ul>
   {
     names.map((item, index) => (
-        <li style={style} className="bg" key={index}>
+        <li style={style} className={"b"+"g"} key={index}>
           {item}
         </li>
       )

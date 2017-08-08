@@ -1,1 +1,1 @@
-import './day1/2.jsx'
+import './day1/3.component'
