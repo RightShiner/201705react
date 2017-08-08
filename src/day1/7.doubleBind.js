@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 class Input extends React.Component{
   constructor(){
     super();
-    this.state = {val:''};
+    this.state = {val:localStorage.getItem('val')};
   }
   //event事件对象，这个对象并非原生的事件对象。而是经过React包装过的事件对象
   //event.target事件源对象 input元素对应的真实DOM元素
@@ -12,11 +12,16 @@ class Input extends React.Component{
       val:event.target.value
     });
   }
+  // status=state
+  handleClick = ()=>{
+    localStorage.setItem('val',this.state.val);
+  }
   render(){
     return (
       <div>
         <p>{this.state.val}</p>
-        <input onChange={this.handleChange} type="text"/>
+        <input onChange={this.handleChange} value={this.state.val} type="text"/>
+        <button onClick={this.handleClick}>保存</button>
       </div>
     )
   }
