@@ -1,1 +1,1 @@
-import './day1/7.doubleBind'
+import './day1/8.panel'

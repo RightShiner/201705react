@@ -16,8 +16,12 @@ module.exports = {
         exclude:/node_modules/ // 对于node_modules下面的文件不解析
       },
       {
-        test:/\.css/,
-        use:["style-loader","css-loader"]
+        test:/\.css$/,//如果文件后缀是css
+        loaders:["style-loader","css-loader"]
+      },
+      {
+        test:/\.(eot|svg|woff|woff2|ttf)$/,//如果是bootstrap中的这五种字体的话
+        loader:'url-loader'
       }
     ]
   },
