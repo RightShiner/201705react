@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 /**
  * 组件的属性，属性就是那些从外界传进来，组件内部只能读，不能改的数据
- * 1.属性是什么,属性有什么?
+ * 1.属性是什么,属性有什么特点?
  * 2.如何传递进来
  * 3.在组件内部如何读取属性对象
  * 4.如何设置默认属性
@@ -17,7 +17,7 @@ class Person extends React.Component{
   static propTypes = {
     //姓名 值是必填项，类型是字符串
     //The prop `name` is marked as required in `Person`, but its value is `undefined`.
-    name:React.PropTypes.string.isRequired,
+    name:React.PropTypes.numer.isRequired,
     //性别 值是必填项，类型是字符串
     //Invalid prop `gender` of type, `number` supplied to `Person`, expected `string`. in Person
     gender:React.PropTypes.oneOf(['男','女']).isRequired
