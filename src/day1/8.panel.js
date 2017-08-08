@@ -27,6 +27,8 @@ class Panel extends Component{
   render(){
     return (
       <div className="panel panel-default">
+        <button className="btn btn-danger">红</button>
+        <button className="btn btn-success">绿</button>
         <PanelHead head={this.props.head}/>
         <PanelBody body={this.props.children}/>
         <PanelFooter footer={this.props.footer}/>
