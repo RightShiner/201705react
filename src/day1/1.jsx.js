@@ -1,4 +1,6 @@
-//react是核心库 设置房子
+/**
+ * react是核心库 设置房子
+ */
 import React from 'react';
 //react-dom是跟DOM操作相关的库 盖房子
 import ReactDOM from 'react-dom';
