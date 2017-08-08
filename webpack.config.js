@@ -14,6 +14,10 @@ module.exports = {
         test:/\.jsx?$/,//如果要加载的模块后缀是.js的话
         loader:'babel-loader',//使用loader来加载
         exclude:/node_modules/ // 对于node_modules下面的文件不解析
+      },
+      {
+        test:/\.css/,
+        use:["style-loader","css-loader"]
       }
     ]
   },
