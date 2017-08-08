@@ -17,6 +17,8 @@ module.exports = {
       }
     ]
   },
+  //能让控制台的报错信息指向源代码，而非打包后的文件
+  devtool:"source-map",
   //自动产出html文件，并且插入打包后的脚本
   plugins:[
      new HtmlWebpackPlugin({

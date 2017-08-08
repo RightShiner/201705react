@@ -1,1 +1,1 @@
-alert(1);
+import './day1/1.jsx'
