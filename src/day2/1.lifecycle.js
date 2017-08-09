@@ -50,6 +50,7 @@ class Counter extends React.Component{
        <p>{this.state.number}</p>
        <button onClick={this.handleClick}>+</button>
        <button onClick={this.killMySelf}>自杀</button>
+
      </div>
     )
   }
@@ -57,6 +58,15 @@ class Counter extends React.Component{
   componentDidMount(){
     //当你需要操作DOM元素的时候需要在这写
     console.log('5.组件挂载完成后 componentDidMount');
+  }
+}
+class ChildCounter extends React.Component{
+  render(){
+    return (
+      <div>
+        {}
+      </div>
+    )
   }
 }
 
