@@ -37,7 +37,7 @@ export default class Slider extends React.Component{
          className="slider-wrapper">
           <SliderItems index={this.state.index} images={this.props.images} speed={this.props.speed}/>
          <SliderArrows turn = {this.turn}/>
-         <SliderDots images={this.props.images}/>
+         <SliderDots index={this.state.index} turn={this.turn} images={this.props.images}/>
        </div>
      )
   }

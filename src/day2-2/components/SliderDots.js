@@ -5,7 +5,7 @@ export default class SliderDots extends React.Component{
       <div className="dots">
         {
           this.props.images.map((image,index)=>(
-            <span key={index}></span>
+            <span className={index==this.props.index?'active':''} onClick={()=>this.props.turn(index-this.props.index)} key={index}></span>
           ))
         }
       </div>
