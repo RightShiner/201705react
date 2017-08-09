@@ -12,6 +12,7 @@ class Suggest extends React.Component {
     super();
     //定义一个默认的状态index=-1
     this.state = {words: [], index: -1};//定义初始的状态对象
+    this.wd = '';
   }
 
   handleChange = (event) => {
