@@ -16,6 +16,9 @@ class Suggest extends React.Component {
 
   handleChange = (event) => {
     let wd = event.target.value;//取得输入框的值
+    //把用户输入的关键字保存到当前实例的自定义wd属性上
+    //一般来说如果这个数据是用来渲染视图的，保存到状态里，如果这个数据不需要用来渲染页在，可以暂存在实例上
+    this.wd = wd;
     $.ajax({
       url: 'http://www.baidu.com/su',//请求的后台路径
       type: 'GET',//请求后台的方法名
@@ -24,7 +27,7 @@ class Suggest extends React.Component {
       jsonp: 'cb',//在后台获取方法名的参数名
       success: (result) => {
         //改状态之后会重新render
-        this.setState({words: result.s});
+        this.setState({words: result.s,index:-1});
       }
     });
   }
@@ -36,10 +39,10 @@ class Suggest extends React.Component {
       if (keyCode == 40) {//向下
         index++;
         if (index >= this.state.words.length)
-          index = 0;
+          index = -1;
       } else if (keyCode == 38) {
         index--;
-        if (index < 0)
+        if (index == -2)
           index = this.state.words.length - 1;
       }
       this.setState({index});
@@ -56,6 +59,7 @@ class Suggest extends React.Component {
                 <input type="text"
                        onKeyDown={this.handleKeyDown}
                        onChange={this.handleChange}
+                       value={this.state.index==-1?this.wd:this.state.words[this.state.index]}
                        className="form-control"/>
               </div>
               <div className="panel-body">
