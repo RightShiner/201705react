@@ -1,1 +1,1 @@
-import './day2/4.suggest'
+import './day2-2/index'

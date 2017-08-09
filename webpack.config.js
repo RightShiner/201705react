@@ -20,7 +20,11 @@ module.exports = {
         loaders:["style-loader","css-loader"]
       },
       {
-        test:/\.(eot|svg|woff|woff2|ttf)$/,//如果是bootstrap中的这五种字体的话
+        test:/\.less$/,//如果文件后缀是less
+        loaders:["style-loader","css-loader","less-loader"]
+      },
+      {
+        test:/\.(eot|svg|woff|woff2|ttf|jpg|png|gif)$/,//如果是bootstrap中的这五种字体的话
         loader:'url-loader'
       }
     ]
