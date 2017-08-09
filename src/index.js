@@ -1,1 +1,1 @@
-import './day1/8.panel'
+import './day2/1.lifecycle'
