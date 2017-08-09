@@ -1,6 +1,7 @@
 import React from 'react';
 import './Slider.less';
 import SliderItems from "./SliderItems";
+import SliderArrows from "./SliderArrows";
 export default class Slider extends React.Component{
   constructor(){
     super();
@@ -26,13 +27,13 @@ export default class Slider extends React.Component{
      this.setState({index});//修改状态为最新的index值
   }
   render(){
-
      return (
        <div
          onMouseOver={()=>clearInterval(this.timer)}
          onMouseOut={()=>this.go()}
          className="slider-wrapper">
-          <SliderItems/>
+          <SliderItems index={this.state.index} images={this.props.images} speed={this.props.speed}/>
+         <SliderArrows/>
        </div>
      )
   }
