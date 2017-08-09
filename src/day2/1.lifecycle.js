@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom';
 /**
  * 什么叫生命周期函数
  */
+class ChildCounter extends React.Component{
+  //组件将要接收到父组件王传过来的新的属性
+  componentWillReceiveProps(newProps){
+      console.log('ChildCounter newProps');
+  }
+  render(){
+    return (
+      <div>
+        {this.props.number}
+      </div>
+    )
+  }
+}
 class Counter extends React.Component{
   //1.获得默认属性对象
   static defaultProps = {
@@ -50,7 +63,7 @@ class Counter extends React.Component{
        <p>{this.state.number}</p>
        <button onClick={this.handleClick}>+</button>
        <button onClick={this.killMySelf}>自杀</button>
-
+       <ChildCounter number={this.state.number}/>
      </div>
     )
   }
@@ -60,14 +73,6 @@ class Counter extends React.Component{
     console.log('5.组件挂载完成后 componentDidMount');
   }
 }
-class ChildCounter extends React.Component{
-  render(){
-    return (
-      <div>
-        {}
-      </div>
-    )
-  }
-}
+
 
 ReactDOM.render(<Counter/>,document.querySelector('#root'));
