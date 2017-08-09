@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
  * 什么叫生命周期函数
  */
 class ChildCounter extends React.Component{
-  //组件将要接收到父组件王传过来的新的属性
+  //组件将要接收到父组件传过来的新的属性
   componentWillReceiveProps(newProps){
       console.log('ChildCounter newProps');
   }
@@ -50,7 +50,7 @@ class Counter extends React.Component{
     console.log('8.组件更新完成 componentDidUpdate');
   }
   componentWillUnmount(){
-    console.log('7.组件将要被删除(卸载) componentWillUnmount');
+    console.log('9.组件将要被删除(卸载) componentWillUnmount');
   }
   killMySelf = ()=>{
     ReactDOM.unmountComponentAtNode(document.querySelector('#root'));
