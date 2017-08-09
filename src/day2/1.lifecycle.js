@@ -36,6 +36,12 @@ class Counter extends React.Component{
   componentDidUpdate(){
     console.log('8.组件更新完成 componentDidUpdate');
   }
+  componentWillUnmount(){
+    console.log('7.组件将要被删除(卸载) componentWillUnmount');
+  }
+  killMySelf = ()=>{
+    ReactDOM.unmountComponentAtNode(document.querySelector('#root'));
+  }
   render(){
     //把一个虚拟的DOM元素转成成真实的DOM元素的过程
     console.log('4.把组件挂载到页面中 render');
@@ -43,6 +49,7 @@ class Counter extends React.Component{
      <div>
        <p>{this.state.number}</p>
        <button onClick={this.handleClick}>+</button>
+       <button onClick={this.killMySelf}>自杀</button>
      </div>
     )
   }
