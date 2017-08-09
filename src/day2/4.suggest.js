@@ -10,9 +10,10 @@ import $ from 'jquery';
 class Suggest extends React.Component{
   constructor(){
     super();
-    this.state = {words:[]};//定义初始的状态对象
+    //定义一个默认的状态index=-1
+    this.state = {words:[],index:-1};//定义初始的状态对象
   }
-  handleKeyDown = (event)=>{
+  handleChange = (event)=>{
     let wd = event.target.value;//取得输入框的值
     $.ajax({
       url:'http://www.baidu.com/su',//请求的后台路径
@@ -25,7 +26,19 @@ class Suggest extends React.Component{
          this.setState({words:result.s});
       }
     });
-
+  }
+  handleKeyDown = (event)=>{
+    let keyCode = event.keyCode;//先取得按键的编码
+    //上38 下40
+    if(keyCode == 40 || keyCode == 38){
+      let index = this.state.index;//先取得老的的索引值
+      if(keyCode == 40){//向下
+        index++;
+      }else if(keyCode == 38){
+        index--;
+      }
+      this.setState({index});
+    }
   }
   render(){
     return (
@@ -35,14 +48,15 @@ class Suggest extends React.Component{
             <div className="panel panel-default">
               <div className="panel-heading">
                 <input type="text"
-                       onKeyUp={this.handleKeyDown}
+                       onKeyDown={this.handleKeyDown}
+                       onChange={this.handleChange}
                        className="form-control"/>
               </div>
               <div className="panel-body">
                 <ul className="list-group">
                   {
                     this.state.words.map((item,index)=>(
-                      <li key={index} className="list-group-item">
+                      <li key={index} className={"list-group-item "+(index==this.state.index?'active':'')}>
                         {item}
                       </li>
                     ))
