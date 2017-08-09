@@ -1,5 +1,6 @@
 import React from 'react';
 import './Slider.less';
+import SliderItems from "./SliderItems";
 export default class Slider extends React.Component{
   constructor(){
     super();
@@ -11,7 +12,7 @@ export default class Slider extends React.Component{
     }
   }
   go = ()=>{//开始轮播
-     window.setInterval(()=>{
+     this.timer = window.setInterval(()=>{
        this.turn(1);
      },this.props.delay*1000)
   }
@@ -19,25 +20,19 @@ export default class Slider extends React.Component{
   turn = (step)=>{
      let index = this.state.index;//取得老的index值
      index+=step;//加等于步长
+     if(index >= this.props.images.length){
+        index = 0;
+     }
      this.setState({index});//修改状态为最新的index值
   }
   render(){
-     let style = {
-        left: this.state.index * -300,//left值
-        width:this.props.images.length*300,//宽度
-        transitionDuration:this.props.speed+'s'//转换的时间
-     }
+
      return (
-       <div className="slider-wrapper">
-         <ul className="sliders" style={style}>
-           {
-             this.props.images.map((image,index)=>(
-               <li className="slider">
-                 <img src={image.src} alt={image.alt}/>
-               </li>
-             ))
-           }
-         </ul>
+       <div
+         onMouseOver={()=>clearInterval(this.timer)}
+         onMouseOut={()=>this.go()}
+         className="slider-wrapper">
+          <SliderItems/>
        </div>
      )
   }
