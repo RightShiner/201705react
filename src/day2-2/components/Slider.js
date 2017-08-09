@@ -2,6 +2,7 @@ import React from 'react';
 import './Slider.less';
 import SliderItems from "./SliderItems";
 import SliderArrows from "./SliderArrows";
+import SliderDots from "./SliderDots";
 export default class Slider extends React.Component{
   constructor(){
     super();
@@ -23,6 +24,8 @@ export default class Slider extends React.Component{
      index+=step;//加等于步长
      if(index >= this.props.images.length){
         index = 0;
+     }else if(index<0){
+       index = this.props.images.length-1;
      }
      this.setState({index});//修改状态为最新的index值
   }
@@ -33,7 +36,8 @@ export default class Slider extends React.Component{
          onMouseOut={()=>this.go()}
          className="slider-wrapper">
           <SliderItems index={this.state.index} images={this.props.images} speed={this.props.speed}/>
-         <SliderArrows/>
+         <SliderArrows turn = {this.turn}/>
+         <SliderDots images={this.props.images}/>
        </div>
      )
   }
