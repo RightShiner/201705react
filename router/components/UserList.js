@@ -13,15 +13,18 @@ export default class UserList extends Component{
   }
   render(){
     return (
-      <ul className="list-group">
-        {
-          this.state.users.map((user,index)=>(
-            <li key={index} className="list-group-item">
-              <Link to={`/user/detail/${user.id}`}>{user.username}</Link>
-            </li>
-          ))
-        }
-      </ul>
+     <div>
+       <div className="alert alert-info text-center">{this.props.location.state.msg}</div>
+       <ul className="list-group">
+         {
+           this.state.users.map((user,index)=>(
+             <li key={index} className="list-group-item">
+               <Link to={`/user/detail/${user.id}`}>{user.username}</Link>
+             </li>
+           ))
+         }
+       </ul>
+     </div>
     )
   }
 }
