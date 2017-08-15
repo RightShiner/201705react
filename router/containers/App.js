@@ -9,6 +9,7 @@ import {
   Route, //路由规则
   Link
 } from 'react-router-dom';
+import MenuLink from '../components/MenuLink';
 //Hash history cannot PUSH the same path; a new entry will not be added to the history stack
 //
 export default class App extends Component {
@@ -25,9 +26,9 @@ export default class App extends Component {
               </div>
               <div>
                 <ul className="nav navbar-nav">
-                  <li><Link to="/">首页</Link></li>
-                  <li><Link to="/user">用户管理</Link></li>
-                  <li><Link to="/profile">个人设置</Link></li>
+                  <MenuLink exact={true} label="首页" to="/"/>
+                  <MenuLink exact={false} label="用户管理" to="/user"/>
+                  <MenuLink exact={true} label="个人设置" to="/profile"/>
                 </ul>
               </div>
             </div>

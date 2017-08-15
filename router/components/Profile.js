@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 export default class Profile extends Component{
   render(){
     return (
-      <div>Profile</div>
+      <div>个人设置</div>
     )
   }
 }
