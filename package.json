@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack-dev-server --open"
+    "dev": "webpack-dev-server --open",
+    "build-router": "webpack --config webpack.router.config.js",
+    "dev-router": "webpack-dev-server  --config webpack.router.config.js --open"
   },
   "repository": {
     "type": "git",
