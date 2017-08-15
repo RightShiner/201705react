@@ -13,6 +13,7 @@ import MenuLink from '../components/MenuLink';
 //Hash history cannot PUSH the same path; a new entry will not be added to the history stack
 //
 let NoMatch = ()=><div>路径不存在</div>;
+//Switch只显示匹配到的第一个 如果有匹配的话，其它的不再匹配了，也不会再显示
 export default class App extends Component {
   render() {
     return (
