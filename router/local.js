@@ -20,6 +20,9 @@ export default {
   },
   //删除一个用户
   delUser(id){
-
+    let users = this.getUsers();
+    users = users.filter(user=>user.id!=id);
+    localStorage.setItem(USERS,JSON.stringify(users));
+    return users;
   },
 }
