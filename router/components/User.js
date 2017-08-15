@@ -14,7 +14,7 @@ export default class User extends Component {
         </div>
         <div className="col-md-9">
           <Route path="/user/list" component={UserList}/>
-          <Route path="/user/add" render={(props)=><UserAdd model={this.props.model}/>}/>
+          <Route path="/user/add" render={(props)=><UserAdd {...props} model={this.props.model}/>}/>
         </div>
       </div>
     )

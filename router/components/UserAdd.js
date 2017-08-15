@@ -4,6 +4,7 @@ export default class UserAdd extends Component {
     let username = this.refs.username.value;
     let email = this.refs.email.value;
     this.props.model.addUser({username,email});
+    this.props.history.push('/user/list',{msg:'用户添加成功'});//指向一个新的路径
   }
   render() {
     console.log(this.props);
