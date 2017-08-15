@@ -7,11 +7,12 @@ import Profile from "../components/Profile";
 import {
   HashRouter as Router,//路由容器
   Route, //路由规则
-  Link
+  Switch
 } from 'react-router-dom';
 import MenuLink from '../components/MenuLink';
 //Hash history cannot PUSH the same path; a new entry will not be added to the history stack
 //
+let NoMatch = ()=><div>路径不存在</div>;
 export default class App extends Component {
   render() {
     return (
@@ -36,9 +37,12 @@ export default class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2">
-                <Route exact={true} path="/" component={Home}/>
-                <Route path="/user" render={(props)=><User model={this.props.model}/>}/>
-                <Route path="/profile" component={Profile}/>
+                <Switch>
+                  <Route exact  path="/" component={Home}/>
+                  <Route path="/user" render={(props)=><User model={this.props.model}/>}/>
+                  <Route path="/profile" component={Profile}/>
+                  <Route component={NoMatch}/>
+                </Switch>
               </div>
             </div>
           </div>
