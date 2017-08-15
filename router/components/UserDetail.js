@@ -1,14 +1,15 @@
-import React,{Component} from 'react';
-export default class UserDetail extends Component{
-  render(){
+import React, {Component} from 'react';
+export default class UserDetail extends Component {
+  render() {
+    this.props.match.params.id;
     return (
       <table>
         <thead>
-        <th>
-          <td>ID</td>
-          <td>用户名</td>
-          <td>邮箱</td>
-        </th>
+        <tr>
+          <th>ID</th>
+          <th>用户名</th>
+          <th>邮箱</th>
+        </tr>
         </thead>
         <tbody>
         <tr>
