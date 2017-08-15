@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 export default class UserAdd extends Component {
-  handleSubmit = ()=>{
+  handleSubmit = (event)=>{
+    event.preventDefault();//取消默认事件
     let username = this.refs.username.value;
     let email = this.refs.email.value;
     this.props.model.addUser({username,email});

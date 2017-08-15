@@ -6,8 +6,7 @@ export default class UserDetail extends Component {
   }
   componentWillMount(){
     let id = this.props.match.params.id;//先从match对象拿到ID属性
-    let users = this.props.model.getUsers();//得到老的用户数组
-    let user = users.find(item=>item.id == id);//再得到对应的对象
+    let user = this.props.model.getUser(id);
     this.setState({user});//修改状态
   }
   render() {
