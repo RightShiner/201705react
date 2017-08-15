@@ -36,7 +36,7 @@ export default class App extends Component {
             <div className="row">
               <div className="col-md-8 col-md-offset-2">
                 <Route exact={true} path="/" component={Home}/>
-                <Route path="/user" component={User}/>
+                <Route path="/user" render={(props)=><User model={this.props.model}/>}/>
                 <Route path="/profile" component={Profile}/>
               </div>
             </div>

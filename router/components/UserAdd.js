@@ -1,15 +1,21 @@
 import React, {Component} from 'react';
 export default class UserAdd extends Component {
+  handleSubmit = ()=>{
+    let username = this.refs.username.value;
+    let email = this.refs.email.value;
+    this.props.model.addUser({username,email});
+  }
   render() {
+    console.log(this.props);
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label htmlFor="username" className="control-label">用户名</label>
-          <input id="username" type="text" className="form-control"/>
+          <input ref="username" required id="username" type="text" className="form-control"/>
         </div>
         <div className="form-group">
           <label htmlFor="email" className="control-label">邮箱</label>
-          <input id="email" type="email" className="form-control"/>
+          <input ref="email" required id="email" type="email" className="form-control"/>
         </div>
         <div className="form-group">
           <input type="submit" className="btn btn-info"/>
