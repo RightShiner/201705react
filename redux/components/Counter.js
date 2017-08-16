@@ -18,7 +18,8 @@ let mapStateToProps = (state)=>{
 }
 //把dispatch方法映射为属性对象
 let mapDispatchToProps = dispatch=>({
-  increment:()=>dispatch({type:types.INCREMENT})
+  increment:()=>dispatch({type:types.INCREMENT}),
+  decrement:()=>dispatch({type:types.DECREMENT})
 })
 //默认导出连接后的组件
 export default connect(
