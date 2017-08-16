@@ -10,7 +10,7 @@ let delTodo = (index) => {// action creator
   return {type: DEL_TODO, index};
 }
 //1.创建reducer 一般的状态都会初始化成一个对象
-let initState = {list: []};
+let initState = {list: ['请输入...']};
 let reducer = (state = initState, action) => {
   switch (action.type) {//判断动作的类型
     case ADD_TODO://如果要增加一个todo的话
@@ -41,15 +41,24 @@ class Todo extends React.Component {
       this.setState({list: store.getState().list});
     });
   }
-
+  handleKeyDown = (event)=>{
+    //取得当前按下的键
+    let keyCode = event.keyCode;
+    if(keyCode == 13){
+      //获取输入框的值
+      let text = event.target.value;
+      store.dispatch(addTodo(text));//向仓库派发一个action
+      event.target.value = '';
+    }
+  }
   render() {
     return (
-      <div>
-        <input type="text"/>
+      <div style={{border:'1px solid red'}}>
+        <input type="text" onKeyDown={this.handleKeyDown}/>
         <ul>
           {
             this.state.list.map((item,index)=>(
-              <li key={index}>{item}</li>
+              <li key={index}>{item} <button onClick={()=>store.dispatch(delTodo(index))}>x</button></li>
             ))
           }
         </ul>
@@ -57,6 +66,6 @@ class Todo extends React.Component {
     )
   }
 }
-ReactDOM.render(<Todo/>, document.querySelector('#root'));
+ReactDOM.render(<div><Todo/><Todo/></div>, document.querySelector('#root'));
 
 
