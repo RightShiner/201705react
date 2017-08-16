@@ -15,6 +15,12 @@ let store = createStore(reducer);
 window.store = store;
 //输入 读取仓库的状态用来渲染组件
 //输出 组件里的一些行动可以派发动作，从而修改仓库的状态
+function add(){//add方法就称为action creator
+  return {type:'INCREMENT'};
+}
+function minus(){//add方法就称为action creator
+  return {type:'DECREMENT'};
+}
 class Counter extends React.Component{
   constructor(){
     super();
@@ -28,10 +34,10 @@ class Counter extends React.Component{
   }
 
   add = ()=>{
-    store.dispatch({type:'INCREMENT'});
+    store.dispatch(add());
   }
   minus = ()=>{
-    store.dispatch({type:'DECREMENT'});
+    store.dispatch(minus());
   }
   render(){
     return (
