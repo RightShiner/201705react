@@ -7,7 +7,8 @@
     "build": "webpack",
     "dev": "webpack-dev-server --open",
     "build-router": "webpack --config webpack.router.config.js",
-    "dev-router": "webpack-dev-server  --config webpack.router.config.js --open"
+    "dev-router": "webpack-dev-server  --config webpack.router.config.js --open",
+    "dev-redux": "webpack-dev-server  --config webpack.redux.config.js --open"
   },
   "repository": {
     "type": "git",

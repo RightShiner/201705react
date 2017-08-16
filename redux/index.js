@@ -1,0 +1,1 @@
+import './day/2.react-redux';
