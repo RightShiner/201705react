@@ -6,12 +6,15 @@ export default function (state = {list: []}, action) {
         id:Date.now(),text:action.text,completed:false
       }]};
     case types.TOGGLE_TODO://切换todo的状态
-      return {list:JSON.parse(JSON.stringify(state.list)).map((item,index)=>{
-        if(item.id == action.id){
-          item.completed = !item.completed;
-        }
-        return item;
+      return {list:state.list.map((item,index)=>{
+        return {...item,completed:item.id == action.id?!item.completed:item.completed};
       })}
+    case types.TOGGLE_ALL:
+      return {
+        list:state.list.map((item,index)=>{
+          return {...item,completed:action.checked};
+        })
+      }
     default:
       return state;
   }

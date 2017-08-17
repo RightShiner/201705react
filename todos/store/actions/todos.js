@@ -11,5 +11,11 @@ export default {
       type:types.TOGGLE_TODO,
       id
     }
+  },
+  toggleAll(checked){
+    return {
+      type:types.TOGGLE_ALL,
+      checked
+    }
   }
 }

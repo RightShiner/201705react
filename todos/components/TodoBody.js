@@ -7,7 +7,9 @@ class TodoBody extends Component {
       <li className="list-group-item">
         <div className="checkbox">
           <label>
-            <input type="checkbox" checked={this.props.activeCount == 0}/> 全部选中
+            <input type="checkbox"
+                   onChange={event=>this.props.toggleAll(event.target.checked)}
+                   checked={this.props.activeCount == 0}/> {this.props.activeCount==0?'全部取消':'全部选中'}
           </label>
         </div>
       </li>
