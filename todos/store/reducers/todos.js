@@ -6,7 +6,7 @@ export default function (state = {list: []}, action) {
         id:Date.now(),text:action.text,completed:false
       }]};
     case types.TOGGLE_TODO://切换todo的状态
-      return {list:state.list.map((item,index)=>{
+      return {list:JSON.parse(JSON.stringify(state.list)).map((item,index)=>{
         if(item.id == action.id){
           item.completed = !item.completed;
         }
