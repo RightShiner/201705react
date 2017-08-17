@@ -5,12 +5,15 @@ export default class ProductTable extends React.Component{
   render(){
     let rows = [];
     let lastCategory;
-    this.props.products.forEach(function(product){
+    this.props.products.forEach((product,index)=>{
+      if(product.name.indexOf(this.props.filterText)==-1 || (this.props.onlyShowStocked && !product.stocked)){
+        return;
+      }
       if(product.category != lastCategory){
-        rows.push(<ProductCategoryRow category={product.category}/>);
+        rows.push(<ProductCategoryRow key={product.category}  category={product.category}/>);
         lastCategory = product.category;
       }
-      rows.push( <ProductRow product={product}/>);
+      rows.push( <ProductRow key={index} product={product}/>);
     });
     return (
       <table className="table table-bordered">
