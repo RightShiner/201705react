@@ -14,9 +14,14 @@ class Todos extends Component {
       event.target.value = '';
     }
   }
+  handleClick = (index)=>{
+    let list = this.state.list.slice();
+    list.splice(index,1);
+    this.setState({list});
+  }
   render() {
     let items = this.state.list.map((item, index) => (
-      <li key={index}>{item}</li>
+      <li key={index} onClick={()=>this.handleClick(index)}>{item}</li>
     ));
 
     return (
@@ -24,8 +29,8 @@ class Todos extends Component {
         <input type="text" onKeyDown={this.handleKeyDown}/>
         <ul>
           <CSSTransitionGroup
-            transitionName="fade"
-            transitionEnterTimeout={500}
+            transitionName="move"
+            transitionEnterTimeout={2000}
             transitionLeaveTimeout={300}
           >
             {items}
