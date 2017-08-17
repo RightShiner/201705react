@@ -9,7 +9,8 @@
     "build-router": "webpack --config webpack.router.config.js",
     "dev-router": "webpack-dev-server  --config webpack.router.config.js --open",
     "dev-redux": "webpack-dev-server  --config webpack.redux.config.js --open",
-    "dev-product": "webpack-dev-server  --config webpack.product.config.js --open"
+    "dev-product": "webpack-dev-server  --config webpack.product.config.js --open",
+    "dev-animation": "webpack-dev-server  --config webpack.animation.config.js --open"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.1.2",
+    "react-transition-group": "^1.2.0",
     "redux": "^3.7.2"
   }
 }
