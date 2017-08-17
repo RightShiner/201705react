@@ -1,3 +1,5 @@
-/**
- * Created by Administrator on 2017/8/17.
- */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Todos from "./components/Todos";
+
+ReactDOM.render(<Todos/>,document.querySelector('#root'));
