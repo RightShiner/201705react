@@ -10,7 +10,8 @@
     "dev-router": "webpack-dev-server  --config webpack.router.config.js --open",
     "dev-redux": "webpack-dev-server  --config webpack.redux.config.js --open",
     "dev-product": "webpack-dev-server  --config webpack.product.config.js --open",
-    "dev-animation": "webpack-dev-server  --config webpack.animation.config.js --open"
+    "dev-animation": "webpack-dev-server  --config webpack.animation.config.js --open",
+    "dev-todos": "webpack-dev-server  --config webpack.todos.config.js --open"
   },
   "repository": {
     "type": "git",
