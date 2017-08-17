@@ -8,7 +8,13 @@ class TodoBody extends Component {
         {
           this.props.list.map((item,index)=>(
             <li className="list-group-item" key={index}>
-              {item.text}
+              <div className="checkbox">
+                <label>
+                  <input type="checkbox"
+                         onChange={()=>this.props.toggleTodo(item.id)}
+                         checked={item.completed}/> {item.text}
+                </label>
+              </div>
             </li>
           ))
         }

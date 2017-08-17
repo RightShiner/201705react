@@ -5,5 +5,11 @@ export default {
       type:types.ADD_TODO,
       text
     }
+  },
+  toggleTodo(id){
+    return {
+      type:types.TOGGLE_TODO,
+      id
+    }
   }
 }
