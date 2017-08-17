@@ -23,6 +23,10 @@ export default function (state = {list: []}, action) {
       return {
         list: state.list.filter((item, index) => item.id != action.id)
       }
+    case types.DEL_ALL_COMPLETED:
+      return {
+        list:state.list.filter((item,index)=>!item.completed)
+      }
     default:
       return state;
   }

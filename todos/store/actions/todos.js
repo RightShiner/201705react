@@ -23,5 +23,10 @@ export default {
       type:types.DEL_TODO,
       id
     }
+  },
+  delAllCompleted(){
+    return {
+      type:types.DEL_ALL_COMPLETED
+    }
   }
 }
