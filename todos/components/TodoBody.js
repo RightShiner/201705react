@@ -50,7 +50,16 @@ class TodoBody extends Component {
 //ActionCreator
 export default connect(
   state => ({
-    list: state.todos.list,
+    list: state.todos.list.filter((item,index)=>{
+      switch(state.filter){//判断过滤器的类型
+        case 'active'://如果只要显示未完成的
+          return !item.completed;
+        case 'completed':
+          return item.completed;
+        default:
+          return true;
+      }
+    }),
     //未完成的待办事项数量
     activeCount: state.todos.list.reduce((prev, next) => {
       return prev + Number(!next.completed);
