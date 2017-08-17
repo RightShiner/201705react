@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import actions from '../store/actions/todos';
+import { CSSTransitionGroup } from 'react-transition-group' // ES6
 class TodoBody extends Component {
   render() {
     let selectAll = (
@@ -19,6 +20,10 @@ class TodoBody extends Component {
         {
           this.props.list.length > 0 ? selectAll : null
         }
+        <CSSTransitionGroup
+          transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
         {
           this.props.list.map((item, index) => (
             <li className="list-group-item" key={index}>
@@ -28,10 +33,15 @@ class TodoBody extends Component {
                          onChange={() => this.props.toggleTodo(item.id)}
                          checked={item.completed}/> {item.text}
                 </label>
+                <button
+                  onClick={()=>this.props.delTodo(item.id)}
+                  className="btn btn-danger btn-xs pull-right">删除</button>
               </div>
+
             </li>
           ))
         }
+        </CSSTransitionGroup>
       </ul>
     )
   }

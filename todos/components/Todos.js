@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import TodoHeader from "./TodoHeader";
 import TodoBody from "./TodoBody";
+import './Todos.less';
 export default class Todos extends Component{
   render(){
     return (

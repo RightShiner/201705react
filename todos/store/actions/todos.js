@@ -17,5 +17,11 @@ export default {
       type:types.TOGGLE_ALL,
       checked
     }
+  },
+  delTodo(id){
+    return {
+      type:types.DEL_TODO,
+      id
+    }
   }
 }
