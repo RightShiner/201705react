@@ -11,12 +11,16 @@ export default class FilterProductTable extends React.Component{
   changeFilterText = (filterText)=>{
      this.setState({filterText});
   }
+  changeOnlyShowStocked = onlyShowStocked=>{
+    this.setState({onlyShowStocked});
+  }
   render(){
     return (
       <div className="panel panel-default">
         <div className="panel-heading">
           <SearchBar
             changeFilterText={this.changeFilterText}
+            changeOnlyShowStocked={this.changeOnlyShowStocked}
             filterText={this.state.filterText}
             onlyShowStocked={this.state.onlyShowStocked}
           />
