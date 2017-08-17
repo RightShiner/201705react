@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import TodoHeader from "./TodoHeader";
 import TodoBody from "./TodoBody";
 import './Todos.less';
+import TodoFooter from "./TodoFooter";
 export default class Todos extends Component{
   render(){
     return (
@@ -15,7 +16,9 @@ export default class Todos extends Component{
               <div className="panel-body">
                 <TodoBody/>
               </div>
-              <div className="panel-footer"></div>
+              <div className="panel-footer">
+                <TodoFooter/>
+              </div>
             </div>
           </div>
         </div>

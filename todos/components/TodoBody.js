@@ -26,7 +26,7 @@ class TodoBody extends Component {
           transitionLeaveTimeout={300}>
         {
           this.props.list.map((item, index) => (
-            <li className="list-group-item" key={index}>
+            <li className="list-group-item" key={item.id}>
               <div className="checkbox">
                 <label>
                   <input type="checkbox"
