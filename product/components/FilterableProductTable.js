@@ -9,7 +9,7 @@ export default class FilterProductTable extends React.Component{
           <SearchBar/>
         </div>
         <div className="panel-body">
-          <ProductTable/>
+          <ProductTable products={this.props.products}/>
         </div>
       </div>
     )
