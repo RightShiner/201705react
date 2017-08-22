@@ -9,10 +9,11 @@ import {
   HashRouter as Router,
   Route
 } from 'react-router-dom';
+import Wrap from "./components/Wrap";
 ReactDOM.render(<Provider store={store}>
   <Router>
     <Wrap>
-      <Route path="/" component={App}/>
+      <Route exact path="/" component={App}/>
       <Route path="/counter" component={Counter}/>
     </Wrap>
   </Router>
