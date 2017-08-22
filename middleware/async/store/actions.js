@@ -13,7 +13,7 @@ export default {
           if(code == 0){
             dispatch({type: types.FETCH_TEXT_SUCCESS, text: data.text});
           }else{
-            dispatch({type: types.FETCH_TEXT_FAILURE, text: data.error});
+            dispatch({type: types.FETCH_TEXT_FAILURE, error: data.error});
           }
         })
     }
