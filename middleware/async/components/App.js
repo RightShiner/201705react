@@ -7,7 +7,7 @@ class App extends Component {
       <div>
         <p>{this.props.status}</p>
         <p>{this.props.text}</p>
-        <button onClick={()=>this.props.request()}>获取</button>
+        <button onClick={()=>this.props.requestPromise()}>获取</button>
       </div>
     )
   }
