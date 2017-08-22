@@ -11,7 +11,7 @@ let reducer = (state = 0, action) => {
       return state;
   }
 }
-// 这是旧的写法 let store = createStore(reducer);
+//这是旧的写法 let store = createStore(reducer);
 //第一种用法
 //let store = applyMiddleware(logger)(createStore)(reducer);
 //第二种写法
