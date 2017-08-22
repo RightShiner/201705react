@@ -5,10 +5,10 @@ app.get('/text',function(req,res){
   res.header('Access-Control-Allow-Origin','*');
   setTimeout(function(){
     if(Date.now()%2==0){
-      res.json({text:'hello'});//默认状态码是200,表示返回成功
+      res.json({code:0,text:'hello'});//code=0,表示返回成功
     }else{
-      //状态码是500,表示返回失败
-      res.status(500).json({error:'服务器端错误'})
+      //code=1表示返回失败
+      res.json({code:1,error:'服务器端错误'})
     }
   },3000)
 });

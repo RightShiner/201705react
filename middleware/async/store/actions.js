@@ -9,10 +9,13 @@ export default {
       fetch('http://127.0.0.1:3000/text')
         .then(response => response.json())
         .then(function (data) {//data成功返回的数据
-          dispatch({type: types.FETCH_TEXT_SUCCESS, text: data.text});
-        }).catch(function (reason) {//失败的原因
-        dispatch({type: types.FETCH_TEXT_FAILURE, text: reason.error});
-      })
+          let code = data.code;
+          if(code == 0){
+            dispatch({type: types.FETCH_TEXT_SUCCESS, text: data.text});
+          }else{
+            dispatch({type: types.FETCH_TEXT_FAILURE, text: data.error});
+          }
+        })
     }
   }
 }
