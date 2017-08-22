@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import actions from '../store/actions';
-class App extends Component {
+class Counter extends Component {
   render() {
     return (
       <div>
-        App组件
+        Counter组件
         <p>{this.props.status}</p>
         <p>{this.props.text}</p>
         <button onClick={()=>this.props.requestPromise()}>获取</button>
@@ -18,4 +18,4 @@ export default connect(
   state=>state,
   //这是actionCreator
   actions
-)(App);
+)(Counter);
