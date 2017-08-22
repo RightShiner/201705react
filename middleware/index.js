@@ -1,0 +1,1 @@
+import './wares/2.logger';
