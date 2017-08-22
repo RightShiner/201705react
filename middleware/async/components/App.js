@@ -13,6 +13,8 @@ class App extends Component {
   }
 }
 export default connect(
+  //把store中的状态树变成当前组件属性对象
   state=>state,
+  //这是actionCreator
   actions
 )(App);
