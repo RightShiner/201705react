@@ -10,11 +10,20 @@ import {
   Route
 } from 'react-router-dom';
 import Wrap from "./components/Wrap";
+import createHistory from 'history/createBrowserHistory'
+import {ConnectedRouter} from 'react-router-redux';
+let history = createHistory();
 ReactDOM.render(<Provider store={store}>
-  <Router>
+  <ConnectedRouter history={history}>
     <Wrap>
       <Route exact path="/" component={App}/>
       <Route path="/counter" component={Counter}/>
     </Wrap>
-  </Router>
+  </ConnectedRouter>
 </Provider>,document.querySelector('#root'));
+
+/**
+ * 1.引入 ConnectedRouter
+ * 2.引入并创建history并传递给ConnectRouter
+ * 3.合并routerReducer
+ **/

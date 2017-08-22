@@ -1,5 +1,7 @@
 import * as types from './action-types';
-export default function (state, action) {
+import {combineReducers} from 'redux';
+import {routerReducer} from 'react-router-redux';
+function load(state, action) {
   switch (action.type) {
     case types.FETCH_TEXT_REQUEST:
       return {status: '加载中...', text: ''};
@@ -11,3 +13,15 @@ export default function (state, action) {
       return state;
   }
 }
+//合并自己的reducer和react-router-redux库提供的reducer
+/**
+ * {
+ *  load:{},
+ *  router:{}
+ * }
+ */
+let reducers = combineReducers({
+  load,
+  router:routerReducer
+})
+export default  reducers;
