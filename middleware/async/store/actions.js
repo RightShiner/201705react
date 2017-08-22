@@ -1,5 +1,6 @@
 import * as types from './action-types';
 import { createAction } from 'redux-actions';
+import {push} from 'react-router-redux';
 //action必须只能是一个简单对象
 export default {
   requestThunk(){
@@ -42,5 +43,8 @@ export default {
         payload:fetch('http://127.0.0.1:3000/text').then(response => response.json().then(data=>data.text))
       })
     }
+  },
+  go(path){
+    return push(path);
   }
 }

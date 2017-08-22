@@ -1,7 +1,7 @@
 import * as types from './action-types';
 import {combineReducers} from 'redux';
 import {routerReducer} from 'react-router-redux';
-function load(state, action) {
+function load(state= {status:'', text:''}, action) {
   switch (action.type) {
     case types.FETCH_TEXT_REQUEST:
       return {status: '加载中...', text: ''};

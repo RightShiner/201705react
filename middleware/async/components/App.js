@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import actions from '../store/actions';
 class App extends Component {
+  handleClick = ()=>{
+    //this.props.history.push('/counter');
+    this.props.go('/counter');
+  }
   render() {
     return (
       <div>
@@ -9,6 +13,7 @@ class App extends Component {
         <p>{this.props.status}</p>
         <p>{this.props.text}</p>
         <button onClick={()=>this.props.requestPromise()}>获取</button>
+        <button onClick={this.handleClick}>跳到counter里</button>
       </div>
     )
   }

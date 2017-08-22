@@ -4,11 +4,17 @@ import reducer from './reducer';
 import thunk from 'redux-thunk';
 //redux-promise可以让我们派发一个promise
 import promise from 'redux-promise';
-//初始状态
+import {routerMiddleware} from 'react-router-redux';
+import createHistory from 'history/createHashHistory'
+let history = createHistory();
+let router = routerMiddleware(history);
 let initState = {
-  status:'',//状态 值有 "加载中" "加载成功" "加载失败"
-  text:''
+  load: {
+    status:'',//状态 值有 "加载中" "加载成功" "加载失败"
+    text:''
+  },
+  router:{}
 }
 
-let store = createStore(reducer,initState,applyMiddleware(thunk,promise));
+let store = createStore(reducer,initState,applyMiddleware(thunk,promise,router));
 export default store;
